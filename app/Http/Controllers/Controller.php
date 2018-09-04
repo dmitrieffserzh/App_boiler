@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MetaTag;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -28,9 +29,17 @@ class Controller extends BaseController {
 
 	public function setMeta ( $controller, $action ) {
 
+		$data = MetaTag::where( 'controller', $controller )->where( 'action', $action )->first();
+
+		$meta = (object) [
+			'title'         => $data->title,
+			'description'   => $data->description,
+			'keywords'      => $data->keywords
+		];
+
+		return $meta;
 
 
-		return $controller;
 
 	}
 }

@@ -20,10 +20,10 @@ class ContentController extends Controller {
 
 		$content = Content::with('contentType')->paginate(15);
 
+		$meta = $this->meta;
 
-		print_r($this->meta);
 
-		return view('content.posts.index', compact('content'));
+		return view('content.posts.index', compact('content','meta'));
 	}
 
 }

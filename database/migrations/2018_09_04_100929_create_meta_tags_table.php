@@ -9,12 +9,12 @@ class CreateMetaTagsTable extends Migration {
     public function up() {
         Schema::create('meta_tags', function (Blueprint $table) {
             $table->increments('id');
+	        $table->string('controller')->nullable();
+	        $table->string('action')->nullable();
 	        $table->string('title');
 	        $table->string('description');
 	        $table->string('keywords');
-	        $table->integer('parent_id')->unsigned()->default(0);
-	        $table->integer('content_id')->unsigned();
-	        $table->string('content_type');
+	        $table->integer('content_id')->unsigned()->nullable();
         });
     }
 

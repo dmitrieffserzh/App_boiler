@@ -17,8 +17,8 @@
                         <h1>Post index</h1>
 
 
-                        @foreach($content as $post)
-                            {{ $post->title }}
+                                                    @foreach($content as $post)
+                                                        {{ $post->title }}
                         @endforeach
 
                     </div>
