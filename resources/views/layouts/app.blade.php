@@ -7,9 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ $meta->title or config('app.name') }}</title>
-    <meta name="description" content="{{ $meta->description or config('app.description') }}" />
+    @include('components.meta_tags')
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 

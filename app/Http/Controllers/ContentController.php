@@ -8,22 +8,14 @@ use Illuminate\Http\Request;
 
 class ContentController extends Controller {
 
-	public function index(Request $request, $content_type) {
+	public function index($content_type) {
 
-		//$meta = $this->getActionName($request);
-
-
-
-		//print_r($meta);
 		if(!ContentType::where('type', $content_type)->first())
 			abort(404);
 
 		$content = Content::with('contentType')->paginate(15);
 
-		$meta = $this->meta;
-
-
-		return view('content.posts.index', compact('content','meta'));
+		return view('content.posts.index', ['content'=> $content, 'meta'=>$this->meta]);
 	}
 
 }
