@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Models\UserProfile;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -23,10 +24,11 @@ class RegisterController extends Controller {
 
     use RegistersUsers;
 
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
 
-    public function __construct() {
+	public function __construct(Request $request) {
+		parent::__construct($request);
         $this->middleware('guest');
     }
 

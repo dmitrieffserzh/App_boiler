@@ -15,7 +15,10 @@ class ContentController extends Controller {
 
 		$content = Content::with('contentType')->paginate(15);
 
-		return view('content.posts.index', ['content'=> $content, 'meta'=>$this->meta]);
+
+		$this->meta->title       = 'Тест тайтла основной страницы новостей';
+		$this->meta->description = 'Тест дескрипшен основной страницы новостей';
+		return view('content.posts.index', ['content'=> $content]);
 	}
 
 }
