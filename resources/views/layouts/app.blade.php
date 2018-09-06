@@ -19,7 +19,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -37,6 +36,11 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('news.index') }}">{{ __('News') }}</a>
+                        </li>
+
+
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -72,6 +76,5 @@
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
 </body>
 </html>

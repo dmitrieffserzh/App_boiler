@@ -14,4 +14,21 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('{post_type}', 'ContentController@index')->name('pots');
+
+
+
+
+
+
+
+
+
+// NEWS
+Route::group([
+	'prefix'        => 'news'],
+	//'middleware'    => 'filter.view.counts'],
+	function() {
+		Route::get('/',                         [ 'as' => 'news.index',                   'uses' => 'NewsController@index' ]);
+		Route::get('{category}',                [ 'as' => 'news.category',                'uses' => 'NewsController@category' ]);
+		Route::get('{category}/{slug}',         [ 'as' => 'news.show',                    'uses' => 'NewsController@show' ]);
+	});

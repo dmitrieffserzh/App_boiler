@@ -62,7 +62,7 @@ class RegisterController extends Controller {
 	    $profile->birthday    = $data['birthday'];
 	    $profile->gender      = $data['gender'];
 
-	    $user->userProfile()->save($profile);
+	    $user->getProfile()->save($profile);
 
 	    return $user;
     }

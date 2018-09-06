@@ -4,13 +4,12 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContentTable extends Migration {
+class CreateNewsTable extends Migration {
 
     public function up() {
-        Schema::create('content', function (Blueprint $table) {
+        Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
 	        $table->integer('user_id')->unsigned()->references('id')->on('users');
-	        $table->string('content_type');
 	        $table->string('title');
 	        $table->longText('content');
 	        $table->string('slug');
@@ -23,6 +22,6 @@ class CreateContentTable extends Migration {
     }
 
     public function down() {
-        Schema::dropIfExists('content');
+        Schema::dropIfExists('news');
     }
 }

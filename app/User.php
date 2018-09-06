@@ -26,7 +26,7 @@ class User extends Authenticatable {
     ];
 
 	// RELATIONS
-	public function userProfile() {
+	public function getProfile() {
 		return $this->hasOne(UserProfile::class);
 	}
 }

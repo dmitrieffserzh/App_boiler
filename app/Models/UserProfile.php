@@ -22,7 +22,7 @@ class UserProfile extends Model {
 
 
 	// RELATIONS
-	public function user() {
+	public function getUser() {
 		return $this->belongsTo(User::class);
 	}
 }

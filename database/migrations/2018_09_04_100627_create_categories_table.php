@@ -4,10 +4,10 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostsCategoriesTable extends Migration {
+class CreateCategoriesTable extends Migration {
 
     public function up() {
-        Schema::create('posts_categories', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
 	        $table->increments('id');
 	        $table->integer('parent_id')->unsigned()->default(0);
 	        $table->string('title');
@@ -19,6 +19,6 @@ class CreatePostsCategoriesTable extends Migration {
     }
 
     public function down() {
-        Schema::dropIfExists('posts_categories');
+        Schema::dropIfExists('categories');
     }
 }

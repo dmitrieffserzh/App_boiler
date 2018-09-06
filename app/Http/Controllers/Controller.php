@@ -46,13 +46,13 @@ class Controller extends BaseController {
 			'title'         => config('app.name'),
 			'description'   => config('app.description'),
 			'keywords'      => config('app.keywords'),
+			'divider'       => config('app.divider'),
 		];
 
 		if(isset($data) && !is_null($data)) {
 			$meta->title       = $this->CheckAndSetMeta($meta->title,$data->title);
 			$meta->description = $this->CheckAndSetMeta($meta->description,$data->description);
 			$meta->keywords    = $this->CheckAndSetMeta($meta->keywords,$data->keywords);
-
 		}
 
 		View::share('meta', $meta);
